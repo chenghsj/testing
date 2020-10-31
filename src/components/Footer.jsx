@@ -11,7 +11,7 @@ function Footer() {
           <FontAwesomeIcon
             className="icon"
             size="2x"
-            icon={["fas", "comment"]}
+            icon={["fab", "github"]}
           />
         </h4>
         <h2>Company</h2>
