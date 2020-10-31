@@ -24,7 +24,6 @@ function Navbar() {
   }, [router]);
 
   useEffect(() => {
-    console.log(window.scrollY);
     document.addEventListener("scroll", () => {
       if (!navContainer) return;
       else
@@ -38,7 +37,6 @@ function Navbar() {
 
   const moveSlider = () => {
     const activeLink = menuRef.querySelector(`.active-router`);
-    console.log(menuRef);
     if (!activeLink) return;
     const menuRec = menuRef.getBoundingClientRect();
     const activeLinkRec = activeLink.getBoundingClientRect();

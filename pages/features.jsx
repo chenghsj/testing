@@ -2,7 +2,6 @@ import React from "react";
 import styles from "../styles/reusedStyle.module.css";
 
 function features() {
-  console.log(styles);
   return (
     <div className={`container ${styles["display-center"]}`}>
       <h1>Features page</h1>
