@@ -237,6 +237,7 @@ function Home() {
           }
           .features-container {
             width: 100%;
+            min-width: 1000px;
             position: relative;
             top: 15%;
             padding: 3rem;
@@ -258,7 +259,7 @@ function Home() {
                 justify-content: center;
                 align-items: center;
                 background: white;
-                margin: 1rem 3rem;
+                margin: 1rem;
                 padding: 1rem;
                 width: calc(100% / 3);
                 height: 40vh;
@@ -266,8 +267,9 @@ function Home() {
             }
           }
           .block-3 {
-            padding: 3rem;
             .block-3-inner {
+              margin: 3rem;
+              min-width: 900px;
               border: 1px solid white;
               border-radius: 4px;
               display: flex;
