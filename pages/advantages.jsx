@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "../styles/reusedStyle.module.css";
 
-function features() {
+function advantages() {
   console.log(styles);
   return (
     <div className={`container ${styles["display-center"]}`}>
-      <h1>Features page</h1>
+      <h1>Advantages page</h1>
       <style jsx>{`
         .container {
           height: 100vh;
@@ -17,4 +17,4 @@ function features() {
   );
 }
 
-export default features;
+export default advantages;

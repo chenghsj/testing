@@ -1,6 +1,9 @@
-import Head from "next/head";
-import styles from "../styles/Home.module.css";
+import Home from "../src/components/Home";
 
-export default function Home() {
-  return <div className={styles.container}></div>;
+export default function index() {
+  return (
+    <div>
+      <Home />
+    </div>
+  );
 }
