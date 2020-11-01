@@ -141,7 +141,6 @@ function Home() {
             z-index: 5;
             transition: all 0.3s ease;
             button {
-              cursor: pointer;
               width: 40px;
               height: 40px;
               border: none;

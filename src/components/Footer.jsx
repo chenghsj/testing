@@ -35,10 +35,12 @@ function Footer() {
         <div className="link-container">
           {linkTitle.map((title, index) => {
             return (
-              <Link key={`${title}-${index}`} href={`/${title}`}>
-                <p className="link">
-                  <small>{capitalizeTitle(title)}</small>
-                </p>
+              <Link
+                scroll={false}
+                key={`${title}-${index}`}
+                href={`/${title === "home" ? "" : title}`}
+              >
+                <a className="link">{capitalizeTitle(title)}</a>
               </Link>
             );
           })}
@@ -118,7 +120,7 @@ function Footer() {
               flex-wrap: wrap;
             }
             .link {
-              cursor: pointer;
+              font-size: 0.8rem;
               font-weight: 300;
               margin: 0.3rem 0;
               width: 35%;

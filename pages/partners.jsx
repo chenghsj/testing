@@ -1,18 +1,14 @@
 import React from "react";
-import styles from "../styles/reusedStyle.module.css";
+import AnimatePage from "../src/components/AnimatePage";
+import styles from "../styles/reusedStyle.module.scss";
 
 function partners() {
   return (
-    <div className={`container ${styles["display-center"]}`}>
-      <h1>Partners page</h1>
-      <style jsx>{`
-        .container {
-          height: 100vh;
-          position: relative;
-          top: -60px;
-        }
-      `}</style>
-    </div>
+    <AnimatePage>
+      <div className={`${styles.container} ${styles["display-center"]}`}>
+        <h1>Partners page</h1>
+      </div>
+    </AnimatePage>
   );
 }
 

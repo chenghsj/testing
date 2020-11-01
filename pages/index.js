@@ -1,9 +1,10 @@
 import Home from "../src/components/Home";
+import AnimatePage from "../src/components/AnimatePage";
 
 export default function index() {
   return (
-    <div>
+    <AnimatePage>
       <Home />
-    </div>
+    </AnimatePage>
   );
 }

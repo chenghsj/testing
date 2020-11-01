@@ -23,7 +23,7 @@ function Arrow(props) {
             left: ${direction === "left" ? "-12% " : "106.5%"};
           }
           button {
-            cursor: pointer;
+            color: #515966;
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -64,7 +64,7 @@ function Carousel() {
       <Slider {...sliderSettings}>
         {colors.map((color, index) => {
           return (
-            <div className="slider-box">
+            <div key={`carousel-${index}`} className="slider-box">
               <div
                 className="color-slider"
                 style={{ backgroundColor: `${color}` }}

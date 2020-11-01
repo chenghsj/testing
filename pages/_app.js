@@ -3,6 +3,8 @@ import Navbar from "../src/components/Navbar";
 import Footer from "../src/components/Footer";
 import "../styles/globals.css";
 
+import { AnimatePresence, motion } from "framer-motion";
+
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
@@ -11,11 +13,14 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 // config.autoAddCss = false;
 library.add(fas, far, fab);
 
-function MyApp({ Component, pageProps }) {
+function MyApp(props) {
+  const { Component, pageProps, router } = props;
   return (
     <React.Fragment>
       <Navbar />
-      <Component {...pageProps} />
+      <AnimatePresence exitBeforeEnter>
+        <Component {...pageProps} key={router.route} />
+      </AnimatePresence>
       <Footer />
     </React.Fragment>
   );
