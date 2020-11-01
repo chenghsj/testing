@@ -6,54 +6,44 @@ import "slick-carousel/slick/slick-theme.css";
 
 const colors = ["white", "cadetblue", "coral"];
 
-function PrevArrow(props) {
-  const { onClick } = props;
+function Arrow(props) {
+  const { onClick, direction } = props;
   return (
-    <div className="angle-left">
-      <FontAwesomeIcon
-        size="3x"
-        onClick={onClick}
-        icon={["fas", "angle-left"]}
-      />
+    <div className={`angle-icon icon-dir`}>
+      <button onClick={onClick}>
+        <FontAwesomeIcon size="3x" icon={["fas", `angle-${direction}`]} />
+      </button>
       <style jsx>{`
-        .angle-left {
+        .angle-icon {
           position: absolute;
           width: fit-content;
-          left: -10%;
           top: 50%;
-          &:active {
-            color: gray;
+          &,
+          .icon-dir {
+            left: ${direction === "left" ? "-12% " : "106.5%"};
+          }
+          button {
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            transition: all 0.2s ease;
+            &:hover {
+              background: #dbdbdb;
+            }
+            &:focus {
+              outline: none;
+            }
+            &:active {
+              background: #c2c2c2;
+            }
           }
         }
       `}</style>
     </div>
   );
 }
-
-function NextArrow(props) {
-  const { onClick } = props;
-  return (
-    <div className="angle-right">
-      <FontAwesomeIcon
-        size="3x"
-        onClick={onClick}
-        icon={["fas", "angle-right"]}
-      />
-      <style jsx>{`
-        .angle-right {
-          position: absolute;
-          width: fit-content;
-          left: 107%;
-          top: 50%;
-          &:active {
-            color: gray;
-          }
-        }
-      `}</style>
-    </div>
-  );
-}
-
 function Carousel() {
   let sliderSettings = {
     dots: true,
@@ -61,8 +51,8 @@ function Carousel() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
+    nextArrow: <Arrow direction="right" />,
+    prevArrow: <Arrow direction="left" />,
     appendDots: (dots) => (
       <div style={{ margin: "-2% 0" }}>
         <ul style={{ margin: 0, padding: 0 }}> {dots} </ul>

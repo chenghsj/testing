@@ -8,9 +8,11 @@ function Home() {
   useEffect(() => {
     document.addEventListener("scroll", () => {
       if (!goToTop) return;
-      goToTop.style = `opacity:${
-        window.scrollY >= window.innerHeight / 2 ? 1 : 0
-      };`;
+      requestAnimationFrame(() => {
+        goToTop.style = `opacity:${
+          window.scrollY >= window.innerHeight / 2 ? 1 : 0
+        };`;
+      });
     });
   }, []);
 
@@ -132,7 +134,6 @@ function Home() {
             height: 100%;
           }
           .go-to-top {
-            cursor: pointer;
             opacity: 0;
             position: fixed;
             right: 3%;
@@ -140,6 +141,7 @@ function Home() {
             z-index: 5;
             transition: all 0.3s ease;
             button {
+              cursor: pointer;
               width: 40px;
               height: 40px;
               border: none;
