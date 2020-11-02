@@ -36,7 +36,7 @@ function Footer() {
           {linkTitle.map((title, index) => {
             return (
               <Link
-                scroll={false}
+                // scroll={false}
                 key={`${title}-${index}`}
                 href={`/${title === "home" ? "" : title}`}
               >

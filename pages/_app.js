@@ -3,8 +3,6 @@ import Navbar from "../src/components/Navbar";
 import Footer from "../src/components/Footer";
 import "../styles/globals.css";
 
-import { AnimatePresence, motion } from "framer-motion";
-
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
@@ -18,9 +16,7 @@ function MyApp(props) {
   return (
     <React.Fragment>
       <Navbar />
-      <AnimatePresence exitBeforeEnter>
-        <Component {...pageProps} key={router.route} />
-      </AnimatePresence>
+      <Component {...pageProps} key={router.route} />
       <Footer />
     </React.Fragment>
   );
