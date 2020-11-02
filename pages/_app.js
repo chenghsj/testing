@@ -2,7 +2,10 @@ import React from "react";
 import Navbar from "../src/components/Navbar";
 import Footer from "../src/components/Footer";
 import "../styles/globals.css";
+import GoToTop from "../src/components/GoToTop";
 
+import { PageTransition } from "next-page-transitions";
+import { Transition } from "../src/components/AnimatePage";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -18,10 +21,27 @@ function MyApp(props) {
   return (
     <React.Fragment>
       <Navbar />
-      <AnimatePresence exitBeforeEnter>
+      <PageTransition timeout={300} classNames="page-transition">
         <Component {...pageProps} key={router.route} />
-      </AnimatePresence>
+      </PageTransition>
+      <GoToTop />
       <Footer />
+      <style jsx global>{`
+        .page-transition-enter {
+          opacity: 0;
+        }
+        .page-transition-enter-active {
+          opacity: 1;
+          transition: opacity 300ms;
+        }
+        .page-transition-exit {
+          opacity: 1;
+        }
+        .page-transition-exit-active {
+          opacity: 0;
+          transition: opacity 300ms;
+        }
+      `}</style>
     </React.Fragment>
   );
 }

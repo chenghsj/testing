@@ -1,36 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import Carousel from "./Carousel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Home() {
-  let goToTop = useRef(null);
-
-  useEffect(() => {
-    document.addEventListener("scroll", () => {
-      if (!goToTop) return;
-      requestAnimationFrame(() => {
-        goToTop.style = `opacity:${
-          window.scrollY >= window.innerHeight / 2 ? 1 : 0
-        };`;
-      });
-    });
-  }, []);
-
-  const handleGoToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
     <div className="container">
-      <div
-        onClick={handleGoToTop}
-        ref={(el) => (goToTop = el)}
-        className="go-to-top"
-      >
-        <button>
-          <FontAwesomeIcon color="white" size="2x" icon={["fas", "angle-up"]} />
-        </button>
-      </div>
       <div className="block-1">
         <div className="img-1"></div>
         <div className="block-1-form">
@@ -132,29 +106,6 @@ function Home() {
           .container {
             max-width: 100%;
             height: 100%;
-          }
-          .go-to-top {
-            opacity: 0;
-            position: fixed;
-            right: 3%;
-            bottom: 5%;
-            z-index: 5;
-            transition: all 0.3s ease;
-            button {
-              width: 40px;
-              height: 40px;
-              border: none;
-              background: #656e7e;
-              border-radius: 50%;
-              box-shadow: 0px 2px 6px -3px rgba(0, 0, 0, 1);
-              &:active {
-                box-shadow: none;
-                transform: translateY(2px);
-              }
-              &:focus {
-                outline: none;
-              }
-            }
           }
           .block-1,
           .block-2,
