@@ -1,5 +1,8 @@
 html,
 body {
+  @media screen and (orientation: portrait) {
+    width: fit-content;
+  }
   color: white;
   padding: 0;
   margin: 0;
